@@ -389,97 +389,118 @@
             </div>
         </div>
 
-        <div class="card">
-            <h3>Hyatt Place – GM Assistant for Technology (Intern)</h3>
-            <span>Bloomington, IN | Summer 2023</span>
-            <ul>
-                <li>Managed and monitored hotel technology systems (CCTV, elevators, IT systems).</li>
-                <li>Prepared operational and compliance reports for headquarters.</li>
-                <li>Assisted with facility maintenance and technical troubleshooting.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Skills</h2>
-
-        <div class="card">
-            <strong>Programming & Web</strong>
-            <div class="skills">
-                <div class="skill">HTML</div>
-                <div class="skill">CSS</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">Python</div>
-                <div class="skill">C / C++</div>
+        <div class="card expandable" tabindex="0">
+            <div class="card-header">
+                <div>
+                    <h3>Hyatt Place – GM Assistant for Technology (Intern)</h3>
+                    <span>Bloomington, IN | Summer 2023</span>
+                </div>
+                <div class="chevron">▸</div>
             </div>
 
-            <br />
-            <strong>Tools & Platforms</strong>
-            <div class="skills">
-                <div class="skill">Git</div>
-                <div class="skill">GitHub</div>
-                <div class="skill">WSL</div>
-                <div class="skill">Office 365</div>
-                <div class="skill">Google Workspace</div>
-                <div class="skill">Adobe XD</div>
-                <div class="skill">Photoshop</div>
+            <div class="card-content">
+                <h4>Systems & Infrastructure</h4>
+                <ul>
+                    <li>Hotel IT systems, CCTV, access control, and elevators</li>
+                    <li>Device troubleshooting and uptime monitoring</li>
+                    <li>Technology coordination with vendors and headquarters</li>
+                </ul>
+
+                <h4>Security & Compliance</h4>
+                <ul>
+                    <li>Monitoring of surveillance systems and restricted areas</li>
+                    <li>Assisted with incident documentation and compliance reporting</li>
+                    <li>Supported secure handling of operational data</li>
+                </ul>
+
+                <h4>Impact</h4>
+                <ul>
+                    <li>Improved response time for technical issues</li>
+                    <li>Reduced system downtime during peak occupancy</li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <section>
-        <h2>Interests</h2>
-        <div class="card">
-            <ul>
-                <li>Cybersecurity & IT infrastructure (CompTIA coursework)</li>
-                <li>Fluent in Mandarin</li>
-                <li>Automotive mechanics & motorcycles</li>
-                <li>Video editing, digital marketing, and SEO</li>
-                <li>3D modeling & 3D printing</li>
-            </ul>
-        </div>
-    </section>
+        <section>
+            <h2>Skills</h2>
 
-    <footer>
-        © 2026 Augustus Guy · Built as a static site for GitHub Pages
-    </footer>
+            <div class="card">
+                <strong>Programming & Web</strong>
+                <div class="skills">
+                    <div class="skill">HTML</div>
+                    <div class="skill">CSS</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">C / C++</div>
+                </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.expandable').forEach(card => {
-                const content = card.querySelector('.card-content');
+                <br />
+                <strong>Tools & Platforms</strong>
+                <div class="skills">
+                    <div class="skill">Git</div>
+                    <div class="skill">GitHub</div>
+                    <div class="skill">WSL</div>
+                    <div class="skill">Office 365</div>
+                    <div class="skill">Google Workspace</div>
+                    <div class="skill">Adobe XD</div>
+                    <div class="skill">Photoshop</div>
+                </div>
+            </div>
+        </section>
 
-                card.setAttribute('role', 'button');
-                card.setAttribute('aria-expanded', 'false');
-                card.tabIndex = 0;
+        <section>
+            <h2>Interests</h2>
+            <div class="card">
+                <ul>
+                    <li>Cybersecurity & IT infrastructure (CompTIA coursework)</li>
+                    <li>Fluent in Mandarin</li>
+                    <li>Automotive mechanics & motorcycles</li>
+                    <li>Video editing, digital marketing, and SEO</li>
+                    <li>3D modeling & 3D printing</li>
+                </ul>
+            </div>
+        </section>
 
-                const updateMaxHeight = (open) => {
-                    if (!content) return;
-                    if (open) {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                    } else {
-                        content.style.maxHeight = '0';
-                    }
-                };
+        <footer>
+            © 2026 Augustus Guy · Built as a static site for GitHub Pages
+        </footer>
 
-                card.addEventListener('click', () => {
-                    const isActive = card.classList.toggle('active');
-                    card.setAttribute('aria-expanded', String(isActive));
-                    updateMaxHeight(isActive);
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.expandable').forEach(card => {
+                    const content = card.querySelector('.card-content');
+
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-expanded', 'false');
+                    card.tabIndex = 0;
+
+                    const updateMaxHeight = (open) => {
+                        if (!content) return;
+                        if (open) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                        } else {
+                            content.style.maxHeight = '0';
+                        }
+                    };
+
+                    card.addEventListener('click', () => {
+                        const isActive = card.classList.toggle('active');
+                        card.setAttribute('aria-expanded', String(isActive));
+                        updateMaxHeight(isActive);
+                    });
+
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
+                            e.preventDefault();
+                            card.click();
+                        }
+                    });
+
+                    // Ensure correct initial state
+                    updateMaxHeight(card.classList.contains('active'));
                 });
-
-                card.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
-                        e.preventDefault();
-                        card.click();
-                    }
-                });
-
-                // Ensure correct initial state
-                updateMaxHeight(card.classList.contains('active'));
             });
-        });
-    </script>
+        </script>
 
 </body>
 
