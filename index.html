@@ -1,399 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Augustus Guy | Portfolio</title>
-  <meta name="description" content="Augustus Guy – Informatics student focused on cybersecurity, software, and IT management." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Augustus Guy | Portfolio</title>
+    <meta name="description"
+        content="Augustus Guy – Informatics student focused on cybersecurity, software, and IT management." />
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-    }
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #38bdf8;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #020617, var(--bg));
-      color: var(--text);
-      line-height: 1.6;
-      animation: fadeIn 0.8s ease-in;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #020617, var(--bg));
+            color: var(--text);
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-in;
+        }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
 
-    header {
-      padding: 4rem 1.5rem;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: slideDown 0.8s ease-out;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    header h1 {
-      font-size: 2.75rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+        header {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: slideDown 0.8s ease-out;
+        }
 
-    header p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0.75rem auto 1.5rem;
-    }
+        header h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
 
-    .links a {
-      margin: 0 0.75rem;
-      font-weight: 500;
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
+        header p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0.75rem auto 1.5rem;
+        }
 
-    .links a:hover {
-      transform: translateY(-2px);
-    }
+        .links a {
+            margin: 0 0.75rem;
+            font-weight: 500;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
 
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
+        .links a:hover {
+            transform: translateY(-2px);
+        }
 
-    h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1.25rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.75rem;
-    }
+        section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
 
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: cardFadeUp 0.8s ease forwards;
-    }
-    /* Expandable Card */
-.expandable {
-  cursor: pointer;
-}
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.75rem;
+        }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeUp 0.8s ease forwards;
+        }
 
-.chevron {
-  font-size: 1.4rem;
-  color: var(--accent);
-  transition: transform 0.3s ease;
-}
+        /* Expandable Card */
+        .expandable {
+            cursor: pointer;
+        }
 
-.card-content {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-  margin-top: 1rem;
-}
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.card-content h4 {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: var(--accent);
-}
+        .chevron {
+            font-size: 1.4rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
 
-.expandable.active .card-content {
-  max-height: 800px;
-  opacity: 1;
-}
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            margin-top: 1rem;
+        }
 
-.expandable.active .chevron {
-  transform: rotate(90deg);
-}
+        .card-content h4 {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
+        .expandable.active .card-content {
+            max-height: 800px;
+            opacity: 1;
+        }
+
+        .expandable.active .chevron {
+            transform: rotate(90deg);
+        }
 
 
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.2s; }
-    .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
 
-    .card h3 { margin-bottom: 0.25rem; }
-    .card span { color: var(--muted); font-size: 0.9rem; }
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
 
-    ul { margin-top: 0.75rem; padding-left: 1.25rem; }
-    li { margin-bottom: 0.5rem; }
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
+        .card h3 {
+            margin-bottom: 0.25rem;
+        }
 
-    .skill {
-      background: linear-gradient(135deg, #020617, #020617);
-      border: 1px solid #1e293b;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      color: var(--text);
-      font-weight: 500;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
+        .card span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
 
-    .skill::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(56,189,248,0.25), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
-    }
+        ul {
+            margin-top: 0.75rem;
+            padding-left: 1.25rem;
+        }
 
-    .skill:hover::before {
-      transform: translateX(100%);
-    }
+        li {
+            margin-bottom: 0.5rem;
+        }
 
-    .skill:hover {
-      transform: translateY(-3px) scale(1.05);
-      border-color: var(--accent);
-      box-shadow: 0 6px 18px rgba(56,189,248,0.25);
-    }
+        .expandable {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
 
-    .skill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(56,189,248,0.15);
-    }
+        .expandable:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(56, 189, 248, 0.18);
+        }
 
-    footer {
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      animation: fadeIn 1.2s ease-in;
-    }
+        /* Slight chevron feedback on hover */
+        .expandable:hover .chevron {
+            transform: translateX(3px);
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+        /* When expanded, reduce hover motion (feels intentional) */
+        .expandable.active:hover {
+            transform: translateY(-2px);
+        }
 
-    .pfp {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.25rem;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 0 6px rgba(56,189,248,0.15);
-      animation: pfpPop 0.9s ease-out;
-    }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
 
-    @keyframes pfpPop {
-      from { opacity: 0; transform: scale(0.85); }
-      to { opacity: 1; transform: scale(1); }
-    }
+        .skill {
+            background: linear-gradient(135deg, #020617, #020617);
+            border: 1px solid #1e293b;
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
 
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .skill::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(56, 189, 248, 0.25), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
 
-    @keyframes cardFadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .skill:hover::before {
+            transform: translateX(100%);
+        }
 
-    @media (max-width: 600px) {
-      header { padding: 3rem 1rem; }
+        .skill:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 6px 18px rgba(56, 189, 248, 0.25);
+        }
 
-      header h1 { font-size: 2rem; }
-      header p { font-size: 0.95rem; }
+        .skill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+        }
 
-      section {
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            animation: fadeIn 1.2s ease-in;
+        }
 
-      h2 { font-size: 1.4rem; }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
-      .card {
-        padding: 1.2rem;
-        border-radius: 14px;
-      }
+            to {
+                opacity: 1;
+            }
+        }
 
-      .links a {
-        display: inline-block;
-        margin: 0.4rem 0.5rem;
-      }
+        .pfp {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.25rem;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.15);
+            animation: pfpPop 0.9s ease-out;
+        }
 
-      ul { padding-left: 1rem; }
-    }
-  </style>
+        @keyframes pfpPop {
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 3rem 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 0.95rem;
+            }
+
+            section {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+                border-radius: 14px;
+            }
+
+            .links a {
+                display: inline-block;
+                margin: 0.4rem 0.5rem;
+            }
+
+            ul {
+                padding-left: 1rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header>
-    <img src="profile-pic.png" alt="Profile photo placeholder" class="pfp" />
-    <h1>Augustus Guy</h1>
-    <p>
-      Informatics student at Indiana University (Luddy School), passionate about cybersecurity,
-      software programming, and IT management. Hands-on learner thriving at the intersection of
-      technology, business, and security.
-    </p>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/augustus-guy/" target="_blank">LinkedIn</a>
-      <a href="https://app.joinhandshake.com/profiles/49366636" target="_blank">Handshake</a>
-      <a href="https://github.com/" target="_blank">GitHub</a>
-      <a href="mailto:guyaug0@gmail.com">guyaug0@gmail.com</a>
-    </div>
-  </header>
+    <header>
+        <img src="profile-pic.png" alt="Profile photo placeholder" class="pfp" />
+        <h1>Augustus Guy</h1>
+        <p>
+            Informatics student at Indiana University (Luddy School), passionate about cybersecurity,
+            software programming, and IT management. Hands-on learner thriving at the intersection of
+            technology, business, and security.
+        </p>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/augustus-guy/" target="_blank">LinkedIn</a>
+            <a href="https://app.joinhandshake.com/profiles/49366636" target="_blank">Handshake</a>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <a href="mailto:guyaug0@gmail.com">guyaug0@gmail.com</a>
+        </div>
+    </header>
 
-  <section>
-    <h2>Experience</h2>
+    <section>
+        <h2>Experience</h2>
 
-    <div class="card expandable" tabindex="0">
-  <div class="card-header">
-    <div>
-      <h3>AG Vertex – Co-Founder & Operations Manager</h3>
-      <span>Indianapolis, IN | Summer 2024 – Winter 2024</span>
-    </div>
-    <div class="chevron">▸</div>
-  </div>
+        <div class="card expandable" tabindex="0">
+            <div class="card-header">
+                <div>
+                    <h3>AG Vertex – Co-Founder & Operations Manager</h3>
+                    <span>Indianapolis, IN | Summer 2024 – Winter 2024</span>
+                </div>
+                <div class="chevron">▸</div>
+            </div>
 
-  <div class="card-content">
-    <h4>Tools & Technology</h4>
-    <ul>
-      <li>Operational dashboards & reporting</li>
-      <li>CCTV monitoring systems</li>
-      <li>Process automation & documentation</li>
-    </ul>
+            <div class="card-content">
+                <h4>Tools & Technology</h4>
+                <ul>
+                    <li>Operational dashboards & reporting</li>
+                    <li>CCTV monitoring systems</li>
+                    <li>Process automation & documentation</li>
+                </ul>
 
-    <h4>Security Considerations</h4>
-    <ul>
-      <li>Asset tracking & access control for vehicles</li>
-      <li>Incident response for damage, theft, and misuse</li>
-      <li>Risk reduction through standardized procedures</li>
-    </ul>
+                <h4>Security Considerations</h4>
+                <ul>
+                    <li>Asset tracking & access control for vehicles</li>
+                    <li>Incident response for damage, theft, and misuse</li>
+                    <li>Risk reduction through standardized procedures</li>
+                </ul>
 
-    <h4>Impact</h4>
-    <ul>
-      <li>Scaled fleet from 1 to 15+ vehicles</li>
-      <li>Improved operational reliability and response time</li>
-    </ul>
-  </div>
-</div>
+                <h4>Impact</h4>
+                <ul>
+                    <li>Scaled fleet from 1 to 15+ vehicles</li>
+                    <li>Improved operational reliability and response time</li>
+                </ul>
+            </div>
+        </div>
 
-    <div class="card">
-      <h3>Hyatt Place – GM Assistant for Technology (Intern)</h3>
-      <span>Bloomington, IN | Summer 2023</span>
-      <ul>
-        <li>Managed and monitored hotel technology systems (CCTV, elevators, IT systems).</li>
-        <li>Prepared operational and compliance reports for headquarters.</li>
-        <li>Assisted with facility maintenance and technical troubleshooting.</li>
-      </ul>
-    </div>
-  </section>
+        <div class="card">
+            <h3>Hyatt Place – GM Assistant for Technology (Intern)</h3>
+            <span>Bloomington, IN | Summer 2023</span>
+            <ul>
+                <li>Managed and monitored hotel technology systems (CCTV, elevators, IT systems).</li>
+                <li>Prepared operational and compliance reports for headquarters.</li>
+                <li>Assisted with facility maintenance and technical troubleshooting.</li>
+            </ul>
+        </div>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
+    <section>
+        <h2>Skills</h2>
 
-    <div class="card">
-      <strong>Programming & Web</strong>
-      <div class="skills">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Python</div>
-        <div class="skill">C / C++</div>
-      </div>
+        <div class="card">
+            <strong>Programming & Web</strong>
+            <div class="skills">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">C / C++</div>
+            </div>
 
-      <br />
-      <strong>Tools & Platforms</strong>
-      <div class="skills">
-        <div class="skill">Git</div>
-        <div class="skill">GitHub</div>
-        <div class="skill">WSL</div>
-        <div class="skill">Office 365</div>
-        <div class="skill">Google Workspace</div>
-        <div class="skill">Adobe XD</div>
-        <div class="skill">Photoshop</div>
-      </div>
-    </div>
-  </section>
+            <br />
+            <strong>Tools & Platforms</strong>
+            <div class="skills">
+                <div class="skill">Git</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">WSL</div>
+                <div class="skill">Office 365</div>
+                <div class="skill">Google Workspace</div>
+                <div class="skill">Adobe XD</div>
+                <div class="skill">Photoshop</div>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Interests</h2>
-    <div class="card">
-      <ul>
-        <li>Cybersecurity & IT infrastructure (CompTIA coursework)</li>
-        <li>Fluent in Mandarin</li>
-        <li>Automotive mechanics & motorcycles</li>
-        <li>Video editing, digital marketing, and SEO</li>
-        <li>3D modeling & 3D printing</li>
-      </ul>
-    </div>
-  </section>
+    <section>
+        <h2>Interests</h2>
+        <div class="card">
+            <ul>
+                <li>Cybersecurity & IT infrastructure (CompTIA coursework)</li>
+                <li>Fluent in Mandarin</li>
+                <li>Automotive mechanics & motorcycles</li>
+                <li>Video editing, digital marketing, and SEO</li>
+                <li>3D modeling & 3D printing</li>
+            </ul>
+        </div>
+    </section>
 
-  <footer>
-    © 2026 Augustus Guy · Built as a static site for GitHub Pages
-  </footer>
+    <footer>
+        © 2026 Augustus Guy · Built as a static site for GitHub Pages
+    </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.expandable').forEach(card => {
-        const content = card.querySelector('.card-content');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.expandable').forEach(card => {
+                const content = card.querySelector('.card-content');
 
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-expanded', 'false');
-        card.tabIndex = 0;
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-expanded', 'false');
+                card.tabIndex = 0;
 
-        const updateMaxHeight = (open) => {
-          if (!content) return;
-          if (open) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-          } else {
-            content.style.maxHeight = '0';
-          }
-        };
+                const updateMaxHeight = (open) => {
+                    if (!content) return;
+                    if (open) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        content.style.maxHeight = '0';
+                    }
+                };
 
-        card.addEventListener('click', () => {
-          const isActive = card.classList.toggle('active');
-          card.setAttribute('aria-expanded', String(isActive));
-          updateMaxHeight(isActive);
+                card.addEventListener('click', () => {
+                    const isActive = card.classList.toggle('active');
+                    card.setAttribute('aria-expanded', String(isActive));
+                    updateMaxHeight(isActive);
+                });
+
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+
+                // Ensure correct initial state
+                updateMaxHeight(card.classList.contains('active'));
+            });
         });
+    </script>
 
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
-            e.preventDefault();
-            card.click();
-          }
-        });
+</body>
 
-        // Ensure correct initial state
-        updateMaxHeight(card.classList.contains('active'));
-      });
-    });
-  </script>
-
-  </body>
-  </html>
+</html>
