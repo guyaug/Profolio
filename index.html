@@ -250,20 +250,6 @@
     }
   </style>
 </head>
-<script>
-  document.querySelectorAll('.expandable').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('active');
-    });
-
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.classList.toggle('active');
-      }
-    });
-  });
-</script>
 <body>
 
   <header>
@@ -372,5 +358,42 @@
     © 2026 Augustus Guy · Built as a static site for GitHub Pages
   </footer>
 
-</body>
-</html>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.expandable').forEach(card => {
+        const content = card.querySelector('.card-content');
+
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-expanded', 'false');
+        card.tabIndex = 0;
+
+        const updateMaxHeight = (open) => {
+          if (!content) return;
+          if (open) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = '0';
+          }
+        };
+
+        card.addEventListener('click', () => {
+          const isActive = card.classList.toggle('active');
+          card.setAttribute('aria-expanded', String(isActive));
+          updateMaxHeight(isActive);
+        });
+
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+
+        // Ensure correct initial state
+        updateMaxHeight(card.classList.contains('active'));
+      });
+    });
+  </script>
+
+  </body>
+  </html>
